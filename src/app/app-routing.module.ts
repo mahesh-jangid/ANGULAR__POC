@@ -5,7 +5,6 @@ import { EditusersComponent } from './editusers/editusers.component';
 import { HomeComponent } from './home/home.component';
 import { ListusersComponent } from './listusers/listusers.component';
 import { LoginComponent } from './login/login.component';
-import { UserListComponent } from './user-list/user-list.component';
 import { ViewusersComponent } from './viewusers/viewusers.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
@@ -21,10 +20,6 @@ const routes: Routes = [
   {
     path:'login',
     component:LoginComponent
-  },
-  {
-    path:'userlist',
-    component:UserListComponent
   },
   {
     path:'home',

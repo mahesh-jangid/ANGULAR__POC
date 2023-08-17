@@ -5,11 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserAuthModule } from './user-auth/user-auth.module';
 import { StudentListComponent } from './student-list/student-list.component';
 import { CountryListComponent } from './country-list/country-list.component';
-import { FrontDeskFormComponent } from './front-desk-form/front-desk-form.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -35,10 +32,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserListComponent,
     StudentListComponent,
     CountryListComponent,
-    FrontDeskFormComponent,
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
@@ -53,7 +48,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserAuthModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
