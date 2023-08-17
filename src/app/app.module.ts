@@ -4,9 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { StudentListComponent } from './student-list/student-list.component';
-import { CountryListComponent } from './country-list/country-list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -31,9 +28,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
-    StudentListComponent,
-    CountryListComponent,
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
