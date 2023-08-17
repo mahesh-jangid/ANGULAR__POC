@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validat
 import {ErrorStateMatcher} from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-sign-up',
@@ -64,7 +65,7 @@ export class SignUpComponent {
       });
     
     }else{
-  this.http.post<any>("http://localhost:4323/api/users",{ name: this.name,email: this.email, password: this.password ,address:this.address}).subscribe((users:any)=>{
+  this.http.post<any>(`${environment.apiUrl}/api/users`,{ name: this.name,email: this.email, password: this.password ,address:this.address}).subscribe((users:any)=>{
           console.log('data',users)
           if(users){
             this.snackbar.open('Successfully Sign-up,  Please log-in','Cancel',{

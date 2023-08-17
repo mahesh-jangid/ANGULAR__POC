@@ -4,6 +4,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
 
 
 
@@ -64,7 +65,7 @@ export class AdduserComponent  {
   this.dob= this.addForm.dob;
 
 
-  this.http.post<any>("http://localhost:4323/api/employee",{ name: this.name,email: this.email, mobile: this.mobile,gender:this.gender,city:this.city,dob:this.dob }).subscribe((users:any)=>{
+  this.http.post<any>(`${environment.apiUrl}/api/employee`,{ name: this.name,email: this.email, mobile: this.mobile,gender:this.gender,city:this.city,dob:this.dob }).subscribe((users:any)=>{
           console.log(users,'data')
       });
 
@@ -79,7 +80,7 @@ export class AdduserComponent  {
 
 getData()
 {
-    this.http.get('http://localhost:4323/api/employee').subscribe((users:any)=>{
+    this.http.get(`${environment.apiUrl}/api/employee`).subscribe((users:any)=>{
       this.dataSource = users
         console.log(users,'data')
         // this.getData();

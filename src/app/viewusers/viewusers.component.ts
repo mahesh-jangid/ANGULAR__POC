@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-viewusers',
@@ -31,7 +32,7 @@ export class ViewusersComponent {
 
   getData(id:any)
   {
-      this.http.get('http://localhost:4323/api/employee/'+ id).subscribe((users:any)=>{
+      this.http.get(`${environment.apiUrl}/api/employee/`+ id).subscribe((users:any)=>{
         this.data = {...users}
           console.log(users,'data')
       });

@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-listusers',
@@ -18,7 +19,7 @@ export class ListusersComponent implements OnInit {
   displayedColumns: any[] = ['name','email','gender','action'];
   getData()
   {
-      this.http.get('http://localhost:4323/api/employee').subscribe((users:any)=>{
+      this.http.get(`${environment.apiUrl}/api/employee`).subscribe((users:any)=>{
         this.dataSource = users
           console.log(users,'data')
           // this.getData();
@@ -49,7 +50,7 @@ export class ListusersComponent implements OnInit {
 
   deleteData(id: any)
   {
-    this.http.delete(`http://localhost:4323/api/employee/` + id).subscribe();
+    this.http.delete(`${environment.apiUrl}/api/employee/` + id).subscribe();
     ((res: { json: () => any; })=>
       {
         return res.json()

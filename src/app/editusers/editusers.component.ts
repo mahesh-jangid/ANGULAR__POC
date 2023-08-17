@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute,Router } from '@angular/router';
+import { environment } from '../environments/environment';
 
 
 @Component({
@@ -28,14 +29,14 @@ export class EditusersComponent {
 
   getData(id:any)
   {
-      this.http.get('http://localhost:4323/api/employee/'+ id).subscribe((users:any)=>{
+      this.http.get(`${environment.apiUrl}/api/employee/`+ id).subscribe((users:any)=>{
         this.data = {...users}
           console.log(users,'data')
       });
   }
 
   updateUser(id: number, user: any) {
-    return this.http.put(`http://localhost:4323/api/employee/${id}`, user);
+    return this.http.put(`${environment.apiUrl}/api/employee/${id}`, user);
   }
 
 onUpdate() {

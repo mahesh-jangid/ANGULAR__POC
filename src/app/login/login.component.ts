@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -77,7 +78,7 @@ if(!this.email && !this.password){
     });
   }
 else{
-  this.http.post<any>("http://localhost:4323/api/users/login",{email: this.email, password: this.password },{}).subscribe((users:any)=>{
+  this.http.post<any>(`${environment.apiUrl}/api/users/login`,{email: this.email, password: this.password },{}).subscribe((users:any)=>{
           console.log('data',users)
           if(users?.message){
             this.snackbar.open('Successfully Login','Cancel',{
