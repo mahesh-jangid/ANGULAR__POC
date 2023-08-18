@@ -1,5 +1,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://node-api-uzfd.onrender.com',
+  apiUrl: 'http://localhost:4323',
 };

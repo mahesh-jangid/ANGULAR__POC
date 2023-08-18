@@ -19,12 +19,16 @@ export class EditusersComponent {
     "dob":""
 };
   idd:any
+  dataSource: any;
 
   constructor(private http:HttpClient, public activateroutes:ActivatedRoute, public routes : Router){
     this.activateroutes.queryParams.subscribe((params:any)=>{
       this.idd = params.id1
     })
     this.getData(this.idd)
+  }
+  ngOnInit(){
+    this.getEmployeeData()
   }
 
   getData(id:any)
@@ -38,11 +42,21 @@ export class EditusersComponent {
   updateUser(id: number, user: any) {
     return this.http.put(`${environment.apiUrl}/api/employee/${id}`, user);
   }
-
+  getEmployeeData()
+  {
+      this.http.get(`${environment.apiUrl}/api/employee`).subscribe((users:any)=>{
+        this.dataSource = users
+          console.log(users,'data')
+          // this.getData();
+      });
+  }
 onUpdate() {
   this.updateUser(this.idd, this.data).subscribe((res:any)=>{
     console.log("res5050",res);
-
+if(res){
+  this.routes.navigate(["/listusers"])
+  this.getEmployeeData()
+}
   });
 }
 

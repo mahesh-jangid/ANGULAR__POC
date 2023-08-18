@@ -50,16 +50,22 @@ export class ListusersComponent implements OnInit {
 
   deleteData(id: any)
   {
-    this.http.delete(`${environment.apiUrl}/api/employee/` + id).subscribe();
-    ((res: { json: () => any; })=>
-      {
-        return res.json()
-      })
-
+    this.http.delete(`${environment.apiUrl}/api/employee/` + id).subscribe((user:any)=>{
+      console.log("user",user)
       this.snackbar.open('Successfully Delete','Cancel',{
         duration:3000,
       });
      this.getData()
+    });
+    // ((res: { json: () => any; })=>
+    //   {
+    //     return res.json()
+    //   })
+
+    //   this.snackbar.open('Successfully Delete','Cancel',{
+    //     duration:3000,
+    //   });
+    //  this.getData()
 
     }
 

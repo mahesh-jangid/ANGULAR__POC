@@ -20,6 +20,7 @@ export class SignUpComponent {
   password: any;
   isRequired: boolean = false;
   address: any;
+  mobile: any;
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
@@ -29,7 +30,9 @@ export class SignUpComponent {
       "name":"",
       "email":"",
       "password":"",
-      "address":""
+      "address":"",
+      "mobile":""
+
 
     }
     this.createForm();
@@ -39,6 +42,8 @@ export class SignUpComponent {
   this.email=this.addForm.email;
   this.password= this.addForm.password;
   this.address= this.addForm.address;
+  this.mobile= this.addForm.mobile;
+
 
   if(!this.email && !this.email && !this.password){
     this.snackbar.open('Field can not be empty ','Cancel',{
@@ -65,7 +70,7 @@ export class SignUpComponent {
       });
     
     }else{
-  this.http.post<any>(`${environment.apiUrl}/api/users`,{ name: this.name,email: this.email, password: this.password ,address:this.address}).subscribe((users:any)=>{
+  this.http.post<any>(`${environment.apiUrl}/api/users`,{ Username: this.name,Email: this.email, Password: this.password ,Address:this.address,Mobile:this.mobile}).subscribe((users:any)=>{
           console.log('data',users)
           if(users){
             this.snackbar.open('Successfully Sign-up,  Please log-in','Cancel',{

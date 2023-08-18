@@ -78,7 +78,7 @@ if(!this.email && !this.password){
     });
   }
 else{
-  this.http.post<any>(`${environment.apiUrl}/api/users/login`,{email: this.email, password: this.password },{}).subscribe((users:any)=>{
+  this.http.post<any>(`${environment.apiUrl}/api/users/login`,{Email: this.email, Password: this.password },{}).subscribe((users:any)=>{
           console.log('data',users)
           if(users?.message){
             this.snackbar.open('Successfully Login','Cancel',{
