@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'http://localhost:4323',
+    apiUrl: 'http://pocapi.stageprojects.xyz',
   };
